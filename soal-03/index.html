@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Math Random</title>
+</head>
+<style>
+  .container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100%;
+  }
+
+  .btn {
+    padding: 10px 20px;
+    border-radius: 5px;
+    background-color: cadetblue;
+    color: white;
+    border: none;
+    cursor: pointer;
+    margin-bottom: 20px;
+  }
+
+  .btn:hover {
+    background-color: rgb(76, 138, 140);
+  }
+</style>
+
+<body>
+  <div class="container">
+    <button class="btn" id="getNumber" onclick="getNumber()">Undi</button>
+    <h1 id="result"></h1>
+  </div>
+</body>
+<script>
+  function getNumber() {
+    var btn = document.getElementById('btn')
+    var result = document.getElementById('result')
+    var numRandom = Math.floor(Math.random() * 99);
+    document.getElementById('result').innerHTML = numRandom;
+
+    setTimeout(() => {
+      if (numRandom % 2 !== 0) {
+        alert('Selamat anda menang!')
+      } else {
+        alert('Anda belum beruntung!')
+      }
+    }, 500);
+    
+  }
+</script>
+
+</html>

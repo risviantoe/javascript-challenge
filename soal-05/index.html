@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Soal 5</title>
+</head>
+<style>
+  .form-wrapper {
+    width: 300px;
+    margin-bottom: 20px;
+  }
+
+  .form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    margin-bottom: 15px;
+  }
+
+  .d-none {
+    display: none;
+  }
+
+  .d-block {
+    display: block !important;
+  }
+</style>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.4/moment.min.js"></script>
+</head>
+<body>
+  <div class="form-wrapper">
+    <div class="form-group">
+      <label for="name">Kata</label>
+      <input type="text" name="word" id="word">
+    </div>
+    <button type="submit" onclick="getWord()">Submit</button>
+  </div>
+  <p id="result"></p>
+</body>
+<script>
+  function getWord() {
+	  var result = document.getElementById('result');
+	  var word = document.getElementById('word').value;
+    const letterClass = []
+    for (let i = 0; i < word.length; i++) {
+      if (word[i] === 'a' || word[i] === 'i' || word[i] === 'u' || word[i] === 'e' || word[i] === 'o') {
+        letterClass.push('vokal')
+      } else if (/^[A-Za-z]*$/.test(word[i]) === false) {
+        letterClass.push('invalid')
+      } else {
+        letterClass.push('konsonan')
+      }
+    }
+    document.getElementById('result').innerHTML = `${word} => ${letterClass.join(', ')}`;
+  }
+</script>
+</html>
